@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://16w34xir4opi"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_3ohoq"]
+[ext_resource type="FontFile" uid="uid://dpgjo5uyb05uh" path="res://Xolonium-Regular.ttf" id="1_kqenw"]
+[ext_resource type="PackedScene" uid="uid://dy2tlnsle6dfo" path="res://plaer.tscn" id="1_sdmay"]
+[ext_resource type="PackedScene" uid="uid://i1jqdnvmcrih" path="res://monster.tscn" id="2_30s0b"]
+[ext_resource type="PackedScene" uid="uid://c4q3ncpuv7gsh" path="res://items.tscn" id="3_vh05x"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_3ohoq")
+
+[node name="monsterpositon" type="Marker2D" parent="."]
+position = Vector2(141, 238)
+scale = Vector2(1.34122, 1.34122)
+
+[node name="plaer" parent="." instance=ExtResource("1_sdmay")]
+position = Vector2(236, 685)
+
+[node name="monster" parent="." instance=ExtResource("2_30s0b")]
+position = Vector2(128, 685)
+
+[node name="items" parent="." instance=ExtResource("3_vh05x")]
+position = Vector2(-196, 209)
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 383.0
+offset_top = 3.0
+offset_right = 428.0
+offset_bottom = 81.0
+theme_override_fonts/font = ExtResource("1_kqenw")
+theme_override_font_sizes/font_size = 64
+text = "0"

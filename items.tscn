@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4q3ncpuv7gsh"]
+
+[ext_resource type="Script" path="res://items.gd" id="1_gf10h"]
+[ext_resource type="Texture2D" uid="uid://blesr3g4dkmab" path="res://items/68.png" id="2_8g1vl"]
+[ext_resource type="Texture2D" uid="uid://djyh6ccjqtwu7" path="res://items/44.png" id="3_twlwg"]
+[ext_resource type="Texture2D" uid="uid://cbmq0cr7b5e8r" path="res://items/46.png" id="4_4wehw"]
+[ext_resource type="Texture2D" uid="uid://b7rqcg6p3nien" path="res://items/45.png" id="5_ba8u5"]
+[ext_resource type="Texture2D" uid="uid://cppbhga41tcke" path="res://items/43.png" id="6_yaide"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mk2n4"]
+radius = 21.0
+height = 54.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_303jh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8g1vl")
+}],
+"loop": true,
+"name": &"Ruby",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_twlwg")
+}],
+"loop": true,
+"name": &"buluwing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_4wehw")
+}],
+"loop": true,
+"name": &"gulenwing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ba8u5")
+}],
+"loop": true,
+"name": &"redwing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_yaide")
+}],
+"loop": true,
+"name": &"yellowwing",
+"speed": 5.0
+}]
+
+[node name="items" type="Area2D"]
+position = Vector2(-114, -11)
+script = ExtResource("1_gf10h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(437, 31)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_mk2n4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(437, 32)
+sprite_frames = SubResource("SpriteFrames_303jh")
+animation = &"yellowwing"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://i1jqdnvmcrih"]
+
+[ext_resource type="Texture2D" uid="uid://dkj0vucph77e8" path="res://monster/bat.png" id="1_idwou"]
+[ext_resource type="Script" path="res://monster.gd" id="2_tvpir"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gk6lk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_idwou")
+}],
+"loop": true,
+"name": &"Fledermaus",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkt3d"]
+size = Vector2(15.2131, 8.78689)
+
+[node name="monster" type="Area2D"]
+position = Vector2(56, 36)
+scale = Vector2(7.625, 7.625)
+script = ExtResource("2_tvpir")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gk6lk")
+animation = &"Fledermaus"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.131147, -0.196722)
+shape = SubResource("RectangleShape2D_gkt3d")
